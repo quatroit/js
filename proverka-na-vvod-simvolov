@@ -1,0 +1,19 @@
+	// Numbers and symbols
+  $('.selector').keyup(function (){
+		var inputstr=$(this).val();
+    var test = new RegExp("[0-9!()?+=*$@|]");
+    if(!inputstr.match(test)){              
+        	console.log('not input');
+    	};
+	});
+  
+  
+  // Chars
+	$('.selector').keyup(function (){
+		var inputstr=$(this).val();
+    var test = new RegExp("[A-zА-яЁёІіЇі]");
+    var test2 = new RegExp("[!<>{}()?+=^*$@/|\-]");
+    if((!name.match(test)) && (!name.match(test2))){           
+       console.log('not input');
+    };
+	});
