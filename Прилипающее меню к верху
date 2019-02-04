@@ -1,0 +1,35 @@
+var stickyNavTop = $('.header').offset().top;
+   	
+var stickyNav = function(){
+  var scrollTop = $('html').scrollTop(); // Текущая позиция от верха	         
+	// Если расстояние от верха больше чем 300px, добавляем класс sticky
+  // Если нет, то убираем класс sticky
+	if (scrollTop > stickyNavTop+300) { 
+	    $('.header').addClass('sticky');
+	} else {
+	    $('.header').removeClass('sticky'); 
+	}
+	};
+  
+  // Функция для проверки на Iphone и сафари 
+	var stickyNav2 = function(){
+		var scrollTop = $('body').scrollTop(); // Получаем позицию для body 	         
+		var scrollTop2 = $('html').scrollTop(); // Получаем позицию для html	         
+	    if ((scrollTop > stickyNavTop+300) || (scrollTop2 > stickyNavTop+300)) { 
+	        $('.header').addClass('sticky');
+	    } else {
+	        $('.header').removeClass('sticky'); 
+	    }
+	};
+
+  // Запускаем функцию про скролле
+  $(document).scroll(function() {
+		stickyNav();
+	});
+  
+	// Запускаем функцию про скролле на Iphone и сафари 
+	window.addEventListener('scroll', function() { 
+		stickyNav2(); 
+	});
+	
+	
