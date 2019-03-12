@@ -1,0 +1,40 @@
+/* Элемент к которому будет прицеплено событие прокрутки колесика мыши #element */
+var elem = document.getElementById('element')
+ 
+ /* События прокрутки для разных браузеров */
+	if (elem.addEventListener) {
+		if ('onwheel' in document) {
+		    elem.addEventListener("wheel", onWheel);
+		  } else if ('onmousewheel' in document) {
+		    elem.addEventListener("mousewheel", onWheel);
+		  } else {
+		    elem.addEventListener("MozMousePixelScroll", onWheel);
+		  }
+		} else {
+		  elem.attachEvent("onmousewheel", onWheel);
+		}
+
+    /* Функция которая будет выполняться при прокрутке над элементом */
+		function onWheel(e) {
+			upordown();
+		}
+    
+    /* Начальное значение первой координаты прокрутки */
+		var uod1 = 1000;
+    /* Функция проверки направления вращения колесика мыши */
+		function upordown(){
+      /* Получение координаты после прокрутки колесика (.fixpos - элемент с position:fixed для проверки координат прокрутки)*/
+			var uod2 = $('.fixpos').offset().top;
+      /* Сравнение предиущей координаты и текущей */
+			if(uod1<uod2){
+        /* Если предидущая координата меньше текущей, значит прокрутка идет вниз */
+				
+        /* Выполняемые действия */
+        
+				/* Значение координаты после выполнения действий */
+        uod1 = 3000;
+				return;
+			};
+      /* Получение перидущей координаты после покрутки */
+			uod1 = uod2;
+		};
