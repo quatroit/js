@@ -2,6 +2,7 @@
   $('.selector').keyup(function (){
 		var inputstr=$(this).val();
     var test = new RegExp("[0-9!()?+=*$@|]");
+    //^[A-zА-яЁёІіЇі]+$  от начала строки и до конца ^....$
     if(!inputstr.match(test)){              
         	console.log('not input');
     	};
